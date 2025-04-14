@@ -8,8 +8,24 @@ public class Teste : MonoBehaviour
     void Start()
     {
         fusca.setNome("Fusca de Pai");
-        fusca.setCor("Verde");
+        fusca.setCor("Amarelo");
+        fusca.setNumero_de_rodas(4);
+        fusca.setPreco(2050.90f);
+        Debug.Log("O " + fusca.getNome() + " é " + fusca.getCor() + "tem" + fusca.getNumero_de_rodas() + " e custa R$" + fusca.getPreco());
 
-        Debug.Log("O " + fusca.getNome() + " é " + fusca.getCor());
+        gol.setNome("Gol do Falstão");
+        gol.setCor("Verde");
+        gol.setNumero_de_rodas(4);
+        gol.setPreco(3000.00f);
+        Debug.Log("0 " + gol.getNome());
+
+        if (fusca.ComparePreco(gol))
+        {
+            Debug.Log("O Carro " + fusca.getNome() + " é mais caro do que o carro " + gol.getNome());
+        }
+        else
+        {
+            Debug.Log("O Carro " + fusca.getNome() + "é mais barato do que o carro " + gol.getNome());
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Carro
@@ -25,5 +26,34 @@ public class Carro
     public void setCor(string cor)
     {
         this.cor = cor;
+    }
+
+    public int getNumero_de_rodas()
+    {
+        return this.numero_de_rodas;
+    }
+
+    public void setNumero_de_rodas(int numero_de_rodas)
+    {
+        this.numero_de_rodas = numero_de_rodas;
+    }
+
+    public float getPreco()
+    {
+        return this.preco;
+    }
+
+    public void setPreco(float preco)
+    {
+        this.preco = preco;
+    }
+
+    public bool ComparePreco(Carro carro)
+    {
+        if (this.preco > carro.getPreco()) 
+        { 
+            return true;
+        }
+        return false;
     }
 }
