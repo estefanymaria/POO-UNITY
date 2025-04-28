@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class Personagem : MonoBehaviour
 {
+    [ SerializeField ]
     private string nome;
+    [ SerializeField ]
     private int energia;
+    [ SerializeField ]
     private int forca_ataque;
+    [ SerializeField ]
     private int forca_do_pulo;
+    [ SerializeField ]
     private float velocidade;
+    [ SerializeField ]
     private int numero_de_pes;
+    [ SerializeField ]
     private int numero_de_maos;
 
     public void AtribuirNome(string nome)
@@ -19,7 +26,7 @@ public class Personagem : MonoBehaviour
     {
         return this.nome;
     }
-    
+
     public void AtribuirEnergia(int energia)
     {
         this.energia = energia;
@@ -29,13 +36,49 @@ public class Personagem : MonoBehaviour
     {
         return this.energia;
     }
-    
+
     public void AtribuirForca_Ataque(int forca_ataque)
     {
         this.forca_ataque = forca_ataque;
     }
 
-    public int Energia()
+    public int Forca_Ataque()
     {
         return this.forca_ataque;
     }
+
+    public void AtribuirForca_do_pulo(float forca_do_pulo)
+    {
+        this.forca_do_pulo = forca_do_pulo;
+    }
+
+    public float Forca_do_Pulo()
+    {
+        return this.forca_do_pulo;
+    }
+
+    public void AtribuirVelocidade(float velocidade)
+    {
+        this.velocidade = velocidade;
+    }
+
+    public float Velocidade()
+    {
+        return this.velocidade;
+    }
+
+    public void AtribuirNumero_de_pes(int numero_de_pes)
+    {
+        this.numero_de_pes = numero_de_pes;
+    }
+
+    public void AtribuirNumero_de_maos(int numero_de_maos)
+    {
+        this.numero_de_maos = numero_de_maos;
+    }
+
+    public int Numero_de_maos()
+    {
+        return this.numero_de_maos;
+    }
+}    

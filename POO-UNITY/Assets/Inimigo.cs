@@ -2,10 +2,22 @@ using UnityEngine;
 
 public class Inimigo : Personagem
 {
-    private string armadura;
-    private string arma;
+    public enum ArmaDoInimigo
+    {
+        ESPADA, MACHADO, ADAGA
+    }
 
-    public void AtribuirArmadura(string armadura)
+    public enum ArmaduraDoInimigo
+    {
+        MADEIRA, COURO, BRONZE, ACO
+    }
+    
+    [ SerializeField ]
+    private ArmaduraDoInimigo armadura;
+    [ SerializeField ]
+    private ArmaDoInimigo arma;
+
+    public void AtribuirArmadura(ArmaduraDoInimigo armadura)
     {
         this.armadura = armadura;
     }
@@ -15,7 +27,7 @@ public class Inimigo : Personagem
         return this.armadura;
     }
 
-    public void AtribuirArma(string arma)
+    public void AtribuirArma(ArmaDoInimigo arma)
     {
         this.arma = arma;
     }
@@ -31,14 +43,14 @@ public class Inimigo : Personagem
 
         switch (arma)
         {
-            case "ESPADA";
-                dano = AtribuirForca_Ataque() + 10;
+            case "ESPADA":
+                dano = Forca_Ataque() + 10;
                 break; 
-            case "MACHADO";
-                dano = AtribuirForca_Ataque() + 18;
+            case "MACHADO":
+                dano = Forca_Ataque() + 18;
                 break;
-            case "ADAGA";
-                dano = AtribuirForca_Ataque() + 5;
+            case "ADAGA":
+                dano = Forca_Ataque() + 5;
                 break;
                 
         }
