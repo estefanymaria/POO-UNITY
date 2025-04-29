@@ -9,7 +9,7 @@ public class Personagem : MonoBehaviour
     [ SerializeField ]
     private int forca_ataque;
     [ SerializeField ]
-    private int forca_do_pulo;
+    private float forca_do_pulo;
     [ SerializeField ]
     private float velocidade;
     [ SerializeField ]

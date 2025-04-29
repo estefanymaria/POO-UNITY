@@ -22,7 +22,7 @@ public class Inimigo : Personagem
         this.armadura = armadura;
     }
 
-    public string Armadura()
+    public ArmaduraDoInimigo Armadura()
     {
         return this.armadura;
     }
@@ -32,7 +32,7 @@ public class Inimigo : Personagem
         this.arma = arma;
     }
 
-    public string Arma()
+    public ArmaDoInimigo Arma()
     {
         return this.arma;
     }
@@ -43,13 +43,13 @@ public class Inimigo : Personagem
 
         switch (arma)
         {
-            case "ESPADA":
+            case ArmaDoInimigo.ESPADA:
                 dano = Forca_Ataque() + 10;
                 break; 
-            case "MACHADO":
+            case ArmaDoInimigo.MACHADO:
                 dano = Forca_Ataque() + 18;
                 break;
-            case "ADAGA":
+            case ArmaDoInimigo.ADAGA:
                 dano = Forca_Ataque() + 5;
                 break;
                 

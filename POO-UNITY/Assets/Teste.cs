@@ -61,8 +61,8 @@ public class Teste : MonoBehaviour
         ork.AtribuirVelocidade(6);
         ork.AtribuirNumero_de_pes(2);
         ork.AtribuirNumero_de_maos(4);
-        ork.AtribuirArma("MACHADO");
-        ork.AtribuirArmadura("COURO");
+        ork.AtribuirArma(Inimigo.ArmaDoInimigo.MACHADO);
+        ork.AtribuirArmadura(Inimigo.ArmaduraDoInimigo.COURO);
 
         if (ork.DanoDoInimigo() >= joao.Energia())
         {
@@ -70,7 +70,7 @@ public class Teste : MonoBehaviour
         }
         else
         {
-            Debug.Log("0 " + joao.Nome() + " ainda tem " + joao.Energia());
+            Debug.Log("0 " + joao.Nome() + " ainda tem " + joao.Energia() + "energia");
         }
     }
 }
