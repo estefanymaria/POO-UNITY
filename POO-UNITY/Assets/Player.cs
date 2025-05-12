@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        velocidade = gameObject.GetComponent<Personagem>().Velocidade();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
