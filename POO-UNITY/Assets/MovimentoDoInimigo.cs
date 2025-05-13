@@ -8,24 +8,46 @@ public class MovimentoDoInimigo : MonoBehaviour
     private Rigidbody _rigidbody;
     private float velocidade;
 
-    public float RaioDeVisao = 3;
+    public float RaioDeVisao = 10;
+    private bool naVisao = false;
+
+    private SphereCollider _sphereCollider;
 
     void Start()
     {
-        velocidade = gameObject.GetComponent<Inimigo>().Velocidade();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
-
+        velocidade = gameObject.GetComponent<Inimigo>().Velocidade();
+        _sphereCollider = gameObject.GetComponent<SphereCollider>();
+        
         _player = GameObject.FindWithTag("Player");
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, _player.transform.position) < RaioDeVisao)
+        _sphereCollider.radius = RaioDeVisao;
+
+        if (naVisao == true)
         {
             transform.LookAt(_player.transform.position);
             transform.position = Vector3.MoveTowards(transform.position,
                 _player.transform.position,
                 velocidade * Time.deltaTime);
+        }
+    }
+
+    void OnTriggerStay(Collider colisao)
+    {
+        if (colisao.gameObject.CompareTag("Player"))
+        {
+            naVisao = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider colisao)
+    {
+        if (colisao.gameObject.CompareTag("Player"))
+        {
+            naVisao = false;
         }
     }
 }
