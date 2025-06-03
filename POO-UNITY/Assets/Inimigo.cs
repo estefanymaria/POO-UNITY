@@ -11,7 +11,7 @@ public class Inimigo : Personagem
     {
         MADEIRA, COURO, BRONZE, ACO
     }
-    
+
     [ SerializeField ]
     private ArmaduraDoInimigo armadura;
     [ SerializeField ]
@@ -37,6 +37,7 @@ public class Inimigo : Personagem
         return this.arma;
     }
 
+
     public int DanoDoInimigo()
     {
         int dano = 0;
@@ -45,16 +46,40 @@ public class Inimigo : Personagem
         {
             case ArmaDoInimigo.ESPADA:
                 dano = Forca_Ataque() + 10;
-                break; 
+                break;
             case ArmaDoInimigo.MACHADO:
                 dano = Forca_Ataque() + 18;
                 break;
             case ArmaDoInimigo.ADAGA:
                 dano = Forca_Ataque() + 5;
                 break;
-                
         }
         
+        // dano do ataque com a arma
+        
         return dano;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void Start()
+    {
+        
+    }
+    void Update()
+    {
+        
     }
 }
