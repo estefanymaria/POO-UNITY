@@ -1,24 +1,21 @@
-using System;
 using UnityEngine;
 
 public class MovimentoDoInimigo : MonoBehaviour
 {
     private GameObject _player;
-
     private Rigidbody _rigidbody;
     private float velocidade;
-
     public float RaioDeVisao = 10;
-    private bool naVisao = false;
+    
+    [HideInInspector] public bool naVisao = false; // Agora acessível por InimigoManager
 
     private SphereCollider _sphereCollider;
 
     void Start()
     {
-        _rigidbody = gameObject.GetComponent<Rigidbody>();
-        velocidade = gameObject.GetComponent<Inimigo>().Velocidade();
-        _sphereCollider = gameObject.GetComponent<SphereCollider>();
-        
+        _rigidbody = GetComponent<Rigidbody>();
+        velocidade = GetComponent<Inimigo>().Velocidade();
+        _sphereCollider = GetComponent<SphereCollider>();
         _player = GameObject.FindWithTag("Player");
     }
 
@@ -26,7 +23,7 @@ public class MovimentoDoInimigo : MonoBehaviour
     {
         _sphereCollider.radius = RaioDeVisao;
 
-        if (naVisao == true)
+        if (naVisao)
         {
             transform.LookAt(_player.transform.position);
             transform.position = Vector3.MoveTowards(transform.position,
@@ -37,15 +34,15 @@ public class MovimentoDoInimigo : MonoBehaviour
 
     void OnTriggerStay(Collider colisao)
     {
-        if (colisao.gameObject.CompareTag("Player"))
+        if (colisao.CompareTag("Player"))
         {
             naVisao = true;
         }
     }
 
-    private void OnTriggerExit(Collider colisao)
+    void OnTriggerExit(Collider colisao)
     {
-        if (colisao.gameObject.CompareTag("Player"))
+        if (colisao.CompareTag("Player"))
         {
             naVisao = false;
         }
